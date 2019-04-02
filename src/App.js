@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Poster from './Poster/Poster';
 import SearchBar from './SearchBar/SearchBar';
-
+import Display from './Display/Display';
 
 class App extends Component {
   render() {
@@ -11,6 +11,7 @@ class App extends Component {
         <div>
             <Poster />
             <SearchBar />
+            <Display />
 
         </div>
       
