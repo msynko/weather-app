@@ -27,6 +27,7 @@ state = {
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`);
     const response = await api_call.json();
     console.log(response);
+    if(city && country){
     this.setState({
       temperature: response.main.temp,
       city: response.name,
@@ -35,11 +36,15 @@ state = {
       description: response.weather[0].description,
       error: ""
     })
+      } else{
+        this.setState({
+          error: "Something went wrong. Please enter the values"
+        })
+
       }
-      // eslint-disable-next-line no-use-before-define
+    }
   render() {
     return (
-
         <div>
             <Poster />
             <SearchBar 
@@ -54,8 +59,10 @@ state = {
             error={this.state.error}/>
         </div>
       
-    );
+    )
   }
 }
+
+
 
 export default App;
