@@ -29,7 +29,7 @@ state = {
     console.log(response);
     if(city && country){
     this.setState({
-      temperature: response.main.temp,
+      temperature: (response.main.temp - 273.17).toFixed(),
       city: response.name,
       country: response.sys.country,
       humidity: response.main.humidity,
@@ -46,7 +46,16 @@ state = {
   render() {
     return (
         <div>
-            <Poster />
+          <div className="wrapper">
+          <div className="main">
+           <div className="container">
+             <div className="row">
+
+            <div className="col-xs-5 title-container">
+              <Poster />
+            </div>
+
+            <div className="col-xs-7 form-container">
             <SearchBar 
             loadData = {this.getData}
             />
@@ -57,8 +66,13 @@ state = {
             humidity={this.state.humidity}
             description={this.state.description}
             error={this.state.error}/>
-        </div>
-      
+          
+     </div>
+    </div>
+   </div>
+  </div>
+</div>
+</div>
     )
   }
 }
